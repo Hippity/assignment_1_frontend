@@ -1,0 +1,53 @@
+
+  
+  .movie-poster{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .movie-card {
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    
+    &:hover {
+      transform: scale(1.03);
+    }
+    
+    ::ng-deep .mat-mdc-card-content {
+      padding: 1em 1em
+    }
+  }
+  
+
+  .score-badge {
+    border-radius: 50%;
+    margin-left:auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .score-value {
+    position: absolute;
+    
+  }
+
+  .movie-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .movie-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .movie-date {
+    color:grey;
+    font-size: 14px;
+  }

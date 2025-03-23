@@ -1,0 +1,110 @@
+.details-container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.backdrop {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: white;
+
+}
+
+.backdrop-overlay {
+  background: rgba(13, 17, 23, 0.8);
+  padding: 2rem 0;
+}
+
+.movie-content {
+  display: flex;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.poster-container {
+  flex: 0 0 25%;
+  margin-right: 2rem;
+}
+
+.poster {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 30px black;
+}
+
+.info-container {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.movie-meta {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.movie-meta-item {
+  margin-right: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.action-item {
+  button {
+    color: white;
+  }
+  margin-right: 1rem;
+}
+
+.tagline {
+  font-style: italic;
+  font-size: 0.8em;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.overview {
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+.overview-text {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.score-badge {
+  border-radius: 50%;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-value {
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .movie-content {
+    flex-direction: column;
+  }
+
+  .poster-container {
+    margin-right: 0;
+    margin-bottom: 2rem;
+    max-width: 200px;
+  }
+}

@@ -1,0 +1,24 @@
+<div>
+  <h1>Genres</h1>
+
+  @if (loading()) {
+
+  <div>
+    <mat-spinner></mat-spinner>
+  </div>
+
+  }
+  @if (!loading() && genres().length === 0) {
+
+    <div>
+        <mat-icon>sentiment_dissatisfied</mat-icon>
+        <p>No Genres found.</p>
+    </div>
+    }
+  
+  
+  @for (genre of genres(); track genre.id) {
+
+  <app-genre-carousel [genre]="genre" />
+  }
+</div>

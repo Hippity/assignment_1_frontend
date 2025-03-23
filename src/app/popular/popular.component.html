@@ -1,0 +1,33 @@
+<div>
+    <h1>Popular Movies</h1>
+
+    <app-search [initialQuery]="searchQuery()" (search)="onSearch($event)"
+        placeholder="Search for movies by title..." />
+
+    @if (loading()) {
+
+    <div>
+        <mat-spinner></mat-spinner>
+    </div>
+    } @if (!loading() && searchQuery()) {
+    <div>
+        <h2>Search Results for "{{ searchQuery() }}"</h2>
+    </div>
+    } @if (!loading() && movies().length === 0) {
+
+    <div>
+        <mat-icon>sentiment_dissatisfied</mat-icon>
+        <p>No movies found.</p>
+    </div>
+    } @if (!loading() && movies().length > 0) {
+    <div class="movie-grid">
+        @for (movie of movies(); track movie.id) {
+        <app-movie-card [movie]="movie" />
+        }
+    </div>
+    } @if (!loading() && totalPages() > 0) {
+    <mat-paginator [length]="totalResults()" [pageSize]="20" [pageIndex]="currentPage() - 1"
+        (page)="onPageChange($event)">
+    </mat-paginator>
+    }
+</div>

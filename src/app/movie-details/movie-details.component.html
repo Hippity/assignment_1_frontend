@@ -1,0 +1,72 @@
+<div class="details-container">
+  @if (loading()) {
+  <div>
+    <mat-spinner></mat-spinner>
+  </div>
+  } @else if (!movie()) {
+  <div>
+    <mat-icon>sentiment_dissatisfied</mat-icon>
+    <p>No Movie found.</p>
+  </div>
+  } @else {
+
+  <div
+    class="backdrop"
+    [style.background-image]="'url(' + getBackdropUrl() + ')'"
+  >
+    <div class="backdrop-overlay">
+      <div class="movie-content">
+        <div class="poster-container">
+          <img [src]="getPosterUrl()" [alt]="movie()?.title" class="poster" />
+        </div>
+
+        <div class="info-container">
+          <h1 class="title">
+            {{ movie()?.title }}
+          </h1>
+
+          <div class="movie-meta">
+            <span class="movie-meta-item">{{ releaseDate() }}</span>
+            <span class="movie-meta-item">{{ getGenres() }}</span>
+            <span class="movie-meta-item">{{ runTime() }}</span>
+          </div>
+
+          <div class="actions">
+            <div class="action-item">
+              <button mat-icon-button aria-label="Add to watchlist">
+                <mat-icon>bookmark_border</mat-icon>
+              </button>
+            </div>
+            <div class="action-item">
+              <div class="score-badge">
+                <mat-progress-spinner
+                  mode="determinate"
+                  [value]="progressValue()"
+                  [diameter]="38"
+                  [strokeWidth]="3"
+                  [color]="'accent'"
+                  class="score-spinner"
+                >
+                </mat-progress-spinner>
+                <div class="score-value">
+                  {{ votePercentage() }}<span class="percentage">%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          @if (movie()?.tagline) {
+          <p class="tagline">{{ movie()?.tagline }}</p>
+          }
+
+          <h2 class="overview">Overview</h2>
+          <p class="overview-text">{{ movie()?.overview }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div></div>
+
+  }
+</div>

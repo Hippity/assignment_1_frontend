@@ -1,0 +1,39 @@
+.carousel-container {
+  width: 100%;
+  margin: 2rem 0;
+  overflow: hidden;
+}
+
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.carousel-content {
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 calc(100% / var(--visible-items, 5));
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .carousel-item {
+    --visible-items: 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .carousel-item {
+    --visible-items: 1;
+  }
+}

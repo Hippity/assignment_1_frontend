@@ -1,0 +1,33 @@
+<mat-card class="movie-card" [routerLink]="['/movie', movieId()]">
+  <img
+    [src]="getPosterUrl()"
+    [alt]="movie().title + ' poster'"
+    class="movie-poster"
+    mat-card-image
+  />
+
+  <mat-card-content class="movie-info">
+      <div>
+        <h3 class="movie-title">{{ movie().title }}</h3>
+        <div class="movie-date">{{ releaseDate() }}</div>
+      </div>
+
+      <div class="score-badge">
+        <mat-progress-spinner
+          mode="determinate"
+          [value]="progressValue()"
+          [diameter]="38"
+          [strokeWidth]="3"
+          [color]="'accent'"
+          class="score-spinner"
+        >
+        </mat-progress-spinner>
+        <div class="score-value">
+          {{ votePercentage() }}<span class="percentage">%</span>
+        </div>
+      </div>
+   
+  
+   
+  </mat-card-content>
+</mat-card>

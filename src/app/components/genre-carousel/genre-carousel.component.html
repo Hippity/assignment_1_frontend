@@ -1,0 +1,39 @@
+<div class="carousel-container">
+  <div class="carousel-header">
+    <h2>{{ genre().name }}</h2>
+    <div>
+      <button mat-icon-button matSuffix (click)="prevSlide()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <button mat-icon-button matSuffix (click)="nextSlide()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="carousel-content">
+    @if (loading()) {
+    <div>
+      <mat-spinner></mat-spinner>
+    </div>
+    } @else if (movies().length === 0) {
+    <div>
+      <mat-icon>sentiment_dissatisfied</mat-icon>
+      <p>No Movies found.</p>
+    </div>
+    } @else {
+    <div
+      class="carousel-track"
+      [style.transform]="
+        'translateX(-' + (currentIndex() * 100) / visibleMovies() + '%)'
+      "
+    >
+      @for (movie of movies(); track movie.id) {
+      <div class="carousel-item">
+        <app-movie-card [movie]="movie" />
+      </div>
+      }
+    </div>
+    }
+  </div>
+</div>
