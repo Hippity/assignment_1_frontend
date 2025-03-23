@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { MovieListResponse } from '../models/apis/moveListReponse';
 import { GenreListResponse } from '../models/apis/genreListResponse';
 import { MovieDetails } from '../models/movieDetails';
+import { MovieCreditResponse } from '../models/apis/movieCreditResponse';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,12 @@ export class TmdbService {
   getPopularMovies(page: number = 1): Observable<MovieListResponse> {
     return this.http.get<MovieListResponse>(
       `${this.apiUrl}/movies/popular/${page}`
+    );
+  }
+
+  getMovieCredits(movie_id: number): Observable<MovieCreditResponse> {
+    return this.http.get<MovieCreditResponse>(
+      `${this.apiUrl}/movie/${movie_id}/credits`
     );
   }
 

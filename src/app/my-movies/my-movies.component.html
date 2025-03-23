@@ -1,0 +1,22 @@
+<div>
+    <h1>My Movies</h1>
+
+    @if (loading()) {
+
+    <div>
+        <mat-spinner></mat-spinner>
+    </div>
+    } @if (!loading() && movies().length === 0) {
+
+    <div>
+        <mat-icon>sentiment_dissatisfied</mat-icon>
+        <p>You have no saved movies</p>
+    </div>
+    } @if (!loading() && movies().length > 0) {
+    <div class="movie-grid">
+        @for (movie of movies(); track movie.id) {
+        <app-movie-card [movie]="movie" />
+        }
+    </div>
+    } 
+</div>
